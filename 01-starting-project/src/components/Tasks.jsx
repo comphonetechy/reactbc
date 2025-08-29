@@ -1,4 +1,5 @@
 import NewTask from "./NewTask"
+import Input from "./Input"
 export default function Tasks({tasks,onAdd,onDelete}){
     return <section>
         <h2
@@ -12,8 +13,10 @@ export default function Tasks({tasks,onAdd,onDelete}){
          className="p-4 mt-8 rounded-md bg-stone-100">
           {tasks.map(task => (
             <li key={task.id} 
+        
             className="flex justify-between my-4">
-              <span>{task.text}</span>
+              <input type="checkbox" checked={task.isDone}/>
+              <Input value={task.text}/>
               <button
               className="text-stone-700 hover:text-stone-500"
               onClick={() => onDelete(task.id)}>Clear</button>
